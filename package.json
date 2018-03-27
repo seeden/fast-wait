@@ -1,0 +1,61 @@
+{
+  "name": "fast-wait",
+  "version": "1.0.0",
+  "description": "Delay a promise a specified amount of time. Always fast as possible.",
+  "author": {
+    "name": "Zlatko Fedor",
+    "email": "zfedor@cherryprojects.com",
+    "url": "http://www.cherryprojects.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/seeden/fast-wait.git"
+  },
+  "keywords": [
+    "wait",
+    "delay",
+    "fast",
+    "setTimeout",
+    "async",
+    "promise"
+  ],
+  "private": false,
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "browser": "./lib/index.js",
+  "module": "./module/index.js",
+  "esnext": "./src/index.js",
+  "engines": {
+    "node": ">= 0.12.0"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "test": "jest ./src/",
+    "test:coverage": "jest --coverage ./src/",
+    "test:watch": "jest --watch ./src/",
+    "build-browser": "cross-env BABEL_ENV=browser babel ./src --out-dir ./lib --source-maps --copy-files",
+    "build-module": "cross-env BABEL_ENV=module babel ./src --out-dir ./module --source-maps --copy-files",
+    "build-node": "babel ./src --out-dir ./dist --source-maps --copy-files",
+    "build": "npm run build-node && npm run build-browser && npm run build-module",
+    "eslint": "node ./node_modules/eslint/bin/eslint.js --ext .js,.jsx ./src"
+  },
+  "dependencies": {
+    "tickedoff": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "jest": "^22.4.3",
+    "jest-cli": "^22.4.3"
+  }
+}
