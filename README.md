@@ -1,6 +1,7 @@
 # fast-wait
 
 Delay a promise a specified amount of time. Always fast as possible.
+For empty delay it will try to resolve fast as possible. For delay > 0 it will use standard setTimeout
 
 [![NPM version][npm-image]][npm-url]
 
@@ -26,14 +27,11 @@ async function test() {
 test();
 ```
 
-For empty delay it will try to resolve fast as possible via tickedoff package
-For delay > 0 it will use standard setTimeout
-
 ## Performance
 
 ```sh
-Promise#then x 10000 = 29ms
-setTimeout x 10000 = 13506ms
+Promise#then x 10000 = 52ms
+setTimeout x 10000 = 12957ms
 ```
 
 # Support us
