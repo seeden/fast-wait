@@ -1,6 +1,6 @@
 {
   "name": "fast-wait",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Delay a promise a specified amount of time. Always fast as possible.",
   "author": {
     "name": "Zlatko Fedor",
@@ -39,9 +39,7 @@
     "build": "npm run build-node && npm run build-browser && npm run build-module",
     "eslint": "node ./node_modules/eslint/bin/eslint.js --ext .js,.jsx ./src"
   },
-  "dependencies": {
-    "tickedoff": "^1.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",

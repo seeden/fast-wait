@@ -1,4 +1,5 @@
 # fast-wait
+
 Delay a promise a specified amount of time. Always fast as possible.
 
 [![NPM version][npm-image]][npm-url]
@@ -11,42 +12,33 @@ Delay a promise a specified amount of time. Always fast as possible.
 [coveralls-url]: https://coveralls.io/r/seeden/fast-wait?branch=master
 [github-url]: https://github.com/seeden/fast-wait
 
-For !delay it will try to resolve fast as possible via tickedoff package
-
-- Using `setTimeout` is actually a bit slow because its clamped to 4ms
-- `setImmediate` is not available in most places (and probably never will be)
-- `process.nextTick` is only in Node
-- `Promise#then` needs polyfills in places
-- `tickedoff` uses whatever the best available option is
-- There are more robust libraries/polyfills but they are larger in size
-- This is all especially good for libraries to use
-
-For delay > 0 it will use standard setTimeout
-
-## Perf
-
-```sh
-process.nextTick x 10000 = 24ms
-Promise#then x 10000 = 29ms
-setImmediate x 10000 = 68ms
-setTimeout x 10000 = 13506ms
-
-# Support us
-
-Star this project on [GitHub][github-url].
-
 ## Usage
 
 ```js
 import wait from 'fast-wait';
 
 async function test() {
-  await wait(); // it will use process.nextTick || Promise#then || setImmediate || setTimeout
+  await wait(); // it will use Promise#then
 
   await wait(200); // it will use setTimeout
 }
+
+test();
 ```
 
+For empty delay it will try to resolve fast as possible via tickedoff package
+For delay > 0 it will use standard setTimeout
+
+## Performance
+
+```sh
+Promise#then x 10000 = 29ms
+setTimeout x 10000 = 13506ms
+```
+
+# Support us
+
+Star this project on [GitHub][github-url].
 
 ## Credits
 

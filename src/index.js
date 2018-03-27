@@ -1,9 +1,8 @@
-import defer from 'tickedoff';
-
 export default (delay) => {
   return new Promise((resolve) => {
     if (!delay) {
-      defer(resolve);
+      resolve();
+      return;
     }
     
     setTimeout(resolve, delay);
