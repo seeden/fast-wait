@@ -30,7 +30,7 @@ test();
 ## Performance
 
 ```sh
-Promise#then x 10000 = 52ms
+fast-wait x 10000 = 52ms
 setTimeout x 10000 = 12957ms
 ```
 
